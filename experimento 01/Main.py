@@ -1,7 +1,15 @@
+"""
+    En la primera sección se dividen las imágenes entre las que se usaran para entrenar y las que se usarán para probar
+"""
+
 import os
 import zipfile
 
-local_zip = '/tmp/cats_and_dogs_filtered.zip'
+
+
+
+local_zip = os.path.dirname(os.path.realpath(__file__))+'/tmp/cats_and_dogs_filtered.zip'
+
 zip_ref = zipfile.ZipFile(local_zip, 'r')
 zip_ref.extractall('/tmp')
 zip_ref.close() 
@@ -40,7 +48,10 @@ print('total validation dog images:', len(os.listdir(validation_dogs_dir)))
 
 
 
-%matplotlib inline
+"""
+    Se presentan las imágenes
+"""
+#%matplotlib inline
 
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
@@ -75,7 +86,9 @@ for i, img_path in enumerate(next_cat_pix+next_dog_pix):
 
 plt.show()
 
+"""
 
+"""
 
 from tensorflow.keras import layers
 from tensorflow.keras import Model
